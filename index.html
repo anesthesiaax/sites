@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Две луны — что оставил в вас Мураками</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="moon"></span><span class="moon s"></span>
+      <h1>Две луны</h1>
+      <p>Прочитали книгу Харуки Мураками? Расскажите, с каким чувством вы её закрыли.</p>
+      <a class="btn" href="#feel">Оставить впечатление</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="shelf">
+      <h2>Книги</h2>
+      <p class="mu">Нажмите на книгу, чтобы написать о ней.</p>
+      <div id="books" class="books"></div>
+    </section>
+
+    <section id="feel">
+      <h2>Как вы себя чувствуете после книги?</h2>
+      <form id="form">
+        <label for="book">Книга</label>
+        <select id="book"></select>
+
+        <fieldset>
+          <legend>Состояние (можно выбрать несколько)</legend>
+          <div id="moods" class="moods"></div>
+        </fieldset>
+
+        <label for="text">Пара слов от себя</label>
+        <textarea id="text" rows="4" maxlength="500" placeholder="Что осталось с вами после последней страницы?"></textarea>
+
+        <label for="name">Ваше имя (необязательно)</label>
+        <input id="name" maxlength="30" placeholder="Читатель">
+
+        <button class="btn" type="submit">Добавить на стену</button>
+        <p id="msg" class="mu" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="wallsec">
+      <h2>Стена впечатлений</h2>
+      <label for="filter">Показать записи о книге</label>
+      <select id="filter"></select>
+      <div id="wall" class="wall"></div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">Читательский сайт, не связанный с автором или издательствами.</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

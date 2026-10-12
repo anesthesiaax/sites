@@ -1,0 +1,96 @@
+/* Цвета сайта. Меняйте их здесь, и весь сайт перекрасится */
+:root{
+  --ink:#E9ECF5;      /* основной текст */
+  --mu:#A3ADCB;       /* приглушённый текст */
+  --ln:#2B3961;       /* линии и рамки */
+  --sf:#18244A;       /* фон карточек */
+  --field:#0F1936;    /* фон полей ввода */
+  --moon:#F2E2A0;     /* большая луна, акцент */
+  --moon2:#8CBFB0;    /* малая зелёная луна */
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);min-height:100vh;
+  font:400 17px/1.6 Onest,system-ui,sans-serif;
+  background:linear-gradient(180deg,#0B1226 0,#16224A 55%,#0E1730 100%) fixed;
+}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+.mu{color:var(--mu)}
+:focus-visible{outline:3px solid var(--moon);outline-offset:2px}
+
+/* Верхний экран */
+.hero{padding:80px 0 56px;overflow:hidden}
+.hero .wrap{position:relative}
+.hero h1{
+  font:italic 500 clamp(56px,13vw,112px)/.95 'Cormorant Garamond',Georgia,serif;
+  margin:0 0 18px;
+}
+.hero p{max-width:30ch;font-size:20px;color:var(--mu);margin:0 0 28px}
+.moon{
+  position:absolute;right:22px;top:-10px;width:170px;height:170px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#FFF6CF,var(--moon) 55%,#C9B46A);
+  box-shadow:0 0 80px 10px rgba(242,226,160,.25);
+}
+.moon.s{
+  width:58px;height:58px;right:210px;top:110px;
+  background:radial-gradient(circle at 35% 35%,#D6F0E7,var(--moon2) 60%,#5E9485);
+  box-shadow:0 0 40px 4px rgba(140,191,176,.25);
+}
+@media (prefers-reduced-motion:no-preference){
+  .moon.s{animation:drift 14s ease-in-out infinite alternate}
+}
+@keyframes drift{to{transform:translate(-18px,10px)}}
+@media (max-width:640px){
+  .hero{padding-top:70px}
+  .moon{width:90px;height:90px;top:-30px}
+  .moon.s{width:32px;height:32px;right:125px;top:30px}
+}
+
+/* Заголовки и кнопки */
+h2{font:600 clamp(30px,6vw,42px)/1.15 'Cormorant Garamond',Georgia,serif;margin:64px 0 10px}
+.btn{
+  display:inline-block;background:var(--moon);color:#1A1F33;border:0;border-radius:8px;
+  padding:13px 24px;font:700 16px Onest,sans-serif;text-decoration:none;cursor:pointer;
+}
+.btn:hover{background:#FFF0B8}
+
+/* Книги */
+.books{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:22px}
+.book{
+  text-align:left;font:inherit;color:inherit;cursor:pointer;background:var(--sf);
+  border:1px solid var(--ln);border-left:6px solid var(--c);border-radius:4px 10px 10px 4px;padding:16px 18px;
+}
+.book:hover{background:#1F2D5C}
+.book h3{font:600 23px/1.2 'Cormorant Garamond',Georgia,serif;margin:0 0 2px}
+.book small{color:var(--mu)}
+.book p{margin:8px 0 0;font-size:15px;color:#C6CDE4}
+
+/* Форма */
+form{max-width:560px;margin-top:20px}
+label,legend{display:block;font-weight:500;margin:20px 0 6px;padding:0}
+fieldset{border:0;margin:0;padding:0}
+input,select,textarea{
+  width:100%;background:var(--field);color:var(--ink);border:1px solid var(--ln);
+  border-radius:8px;padding:12px 14px;font:inherit;
+}
+textarea{resize:vertical}
+.moods{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;margin:0;font-weight:400}
+.chip input{position:absolute;opacity:0;width:1px;height:1px}
+.chip span{display:block;padding:8px 16px;border:1px solid var(--ln);border-radius:999px;cursor:pointer;background:var(--field)}
+.chip input:checked+span{background:var(--moon);color:#1A1F33;border-color:var(--moon);font-weight:700}
+.chip input:focus-visible+span{outline:3px solid var(--moon);outline-offset:2px}
+form .btn{margin-top:24px}
+
+/* Стена впечатлений */
+#filter{max-width:560px}
+.wall{display:grid;gap:14px;margin-top:22px}
+.entry{background:var(--sf);border-left:4px solid var(--c);border-radius:4px 10px 10px 4px;padding:16px 20px}
+.entry h3{font:600 22px/1.2 'Cormorant Garamond',Georgia,serif;margin:0 0 8px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.tags span{font-size:14px;padding:2px 12px;border:1px solid var(--ln);border-radius:999px;color:var(--moon)}
+.entry .t{margin:0 0 10px;white-space:pre-wrap}
+.entry footer{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--mu)}
+.entry footer button{background:none;border:0;color:var(--mu);text-decoration:underline;cursor:pointer;font:inherit}
+.foot{padding-top:64px;padding-bottom:40px;font-size:14px;color:var(--mu)}
